@@ -1,0 +1,28 @@
+Instruções para rodar o projeto:
+
+0. Requisitos e estabelecimento do ambiente
+    0.1 Criar base de dados POSTGRESQL
+        - Criar ou possuir um usuário/senha para Postgre
+        - Criar uma database
+
+    0.2 Rodar ambiente Flask:
+        - Rodar ambiente flask usando como argumento o arquivo 'run.py'
+            Exemplo no Linux: 
+            ~$ env FLASK_APP=run.py flask run
+
+    0.3 Use o link do ambiente gerado para acessar as funcionalidades da API:
+
+1. Usando a API para executar funcionalidades:
+    *** O ambiente é gerado no host local ('localhost') ***
+   
+    1.1 Atualizar/Baixar base de dados e armazenar em Postgre
+        - Método GET em <link_do_ambiente>/username=<username>&password=<password>&db=<database>/update
+            Substituindo os respectivos termos pelos dados associados à base de dados Postgre e ao link do ambiente.
+        Exemplo:
+            http://127.0.0.1:5000/username=postgres&password=secret&db=mydb/update
+
+    1.2 Fazer requisição de dados sobre genes
+        - Método GET em <link_do_ambiente>/username=<username>&password=<password>&db=<database>/run/<input>
+            Substituindo, além dos termos já comentados, <input> por uma entrada correspondente a uma lista de genes no formato ['gene1', 'gene2', ...]
+        Exemplo:
+            http://127.0.0.1:5000/username=postgres&password=secret&db=mydb/run/['GLI3','LMBR1','RERE']
